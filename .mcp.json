@@ -1,0 +1,23 @@
+{
+  "name": "url-ai-mcp",
+  "description": "MEOK AI Labs \u2014 Url tools for AI agents and LLMs",
+  "vendor": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/url-ai-mcp",
+  "runtime": "python",
+  "entrypoint": "server.py",
+  "tools": [
+    "parse_url",
+    "shorten_url_data",
+    "check_url_safety",
+    "extract_metadata"
+  ],
+  "categories": [
+    "Utilities",
+    "Web Development"
+  ],
+  "pricing": {
+    "free": "50 calls/day",
+    "pro": "$9/mo"
+  }
+}
