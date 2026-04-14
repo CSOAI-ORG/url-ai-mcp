@@ -1,10 +1,29 @@
 name: url-ai-mcp
-description: "MEOK AI Labs — Url tools for AI agents and LLMs"
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/url-ai-mcp
-license: MIT
-categories: [Utilities, Web Development]
-tags: [url-processing, url-parsing, link-management, url-shortener, web-links]
-runtime: python
-entrypoint: server.py
+description: MCP server for URL parsing and analysis tools.
+version: 1.0.0
+tools:
+- name: parse_url
+  description: Parse a URL into its components with detailed analysis.
+  parameters:
+  - name: url
+    type: string
+    required: true
+- name: shorten_url_data
+  description: Generate a deterministic short URL hash (does not create actual redirect).
+  parameters:
+  - name: url
+    type: string
+    required: true
+- name: check_url_safety
+  description: Analyze URL for potential safety issues (heuristic-based, no external
+    calls).
+  parameters:
+  - name: url
+    type: string
+    required: true
+- name: extract_metadata
+  description: Extract metadata from URL structure (no HTTP requests).
+  parameters:
+  - name: url
+    type: string
+    required: true

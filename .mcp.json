@@ -1,23 +1,67 @@
 {
   "name": "url-ai-mcp",
-  "description": "MEOK AI Labs \u2014 Url tools for AI agents and LLMs",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/url-ai-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "MCP server for URL parsing and analysis tools.",
+  "version": "1.0.0",
   "tools": [
-    "parse_url",
-    "shorten_url_data",
-    "check_url_safety",
-    "extract_metadata"
-  ],
-  "categories": [
-    "Utilities",
-    "Web Development"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "parse_url",
+      "description": "Parse a URL into its components with detailed analysis.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    },
+    {
+      "name": "shorten_url_data",
+      "description": "Generate a deterministic short URL hash (does not create actual redirect).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    },
+    {
+      "name": "check_url_safety",
+      "description": "Analyze URL for potential safety issues (heuristic-based, no external calls).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    },
+    {
+      "name": "extract_metadata",
+      "description": "Extract metadata from URL structure (no HTTP requests).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    }
+  ]
 }

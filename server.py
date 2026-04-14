@@ -1,4 +1,9 @@
 """URL AI MCP Server — URL parsing and analysis tools."""
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import hashlib
 import re
 import time
@@ -20,8 +25,12 @@ def _rate_check(tool: str) -> bool:
     return True
 
 @mcp.tool()
-def parse_url(url: str) -> dict[str, Any]:
+def parse_url(url: str, api_key: str = "") -> dict[str, Any]:
     """Parse a URL into its components with detailed analysis."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("parse_url"):
         return {"error": "Rate limit exceeded (50/day)"}
     try:
@@ -42,8 +51,12 @@ def parse_url(url: str) -> dict[str, Any]:
     }
 
 @mcp.tool()
-def shorten_url_data(url: str) -> dict[str, Any]:
+def shorten_url_data(url: str, api_key: str = "") -> dict[str, Any]:
     """Generate a deterministic short URL hash (does not create actual redirect)."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("shorten_url_data"):
         return {"error": "Rate limit exceeded (50/day)"}
     h = hashlib.sha256(url.encode()).hexdigest()[:8]
@@ -56,8 +69,12 @@ def shorten_url_data(url: str) -> dict[str, Any]:
     }
 
 @mcp.tool()
-def check_url_safety(url: str) -> dict[str, Any]:
+def check_url_safety(url: str, api_key: str = "") -> dict[str, Any]:
     """Analyze URL for potential safety issues (heuristic-based, no external calls)."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("check_url_safety"):
         return {"error": "Rate limit exceeded (50/day)"}
     warnings = []
@@ -94,8 +111,12 @@ def check_url_safety(url: str) -> dict[str, Any]:
     return {"url": url, "safety_score": score, "rating": rating, "warnings": warnings}
 
 @mcp.tool()
-def extract_metadata(url: str) -> dict[str, Any]:
+def extract_metadata(url: str, api_key: str = "") -> dict[str, Any]:
     """Extract metadata from URL structure (no HTTP requests)."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("extract_metadata"):
         return {"error": "Rate limit exceeded (50/day)"}
     p = urlparse(url)
