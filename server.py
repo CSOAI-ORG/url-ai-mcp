@@ -11,7 +11,7 @@ from urllib.parse import urlparse, parse_qs, urlencode, quote, unquote
 from typing import Any
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("url-ai-mcp")
+mcp = FastMCP("url-ai", instructions="MEOK AI Labs MCP Server")
 _calls: dict[str, list[float]] = {}
 DAILY_LIMIT = 50
 
