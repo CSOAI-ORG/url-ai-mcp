@@ -1,5 +1,6 @@
 name: url-ai-mcp
-description: MEOK AI Labs MCP Server
+description: 'Url Ai MCP server. Tools: parse url, shorten url data, check url safety.
+  Built by MEOK AI Labs.'
 version: 1.0.0
 tools:
 - name: parse_url

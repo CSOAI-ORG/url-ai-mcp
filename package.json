@@ -1,7 +1,7 @@
 {
   "name": "url-ai-mcp",
   "version": "1.0.0",
-  "description": "MEOK AI Labs — url MCP Server",
+  "description": "Url Ai MCP server. Tools: parse url, shorten url data, check url safety. Built by MEOK AI Labs.",
   "main": "server.py",
   "mcp": {
     "name": "url",
@@ -9,10 +9,22 @@
     "homepage": "https://meok.ai",
     "repository": "https://github.com/CSOAI-ORG/url-ai-mcp",
     "runtime": "python",
-    "tags": ["mcp", "mcp-server", "meok-ai-labs", "ai-tools"]
+    "tags": [
+      "mcp",
+      "mcp-server",
+      "meok-ai-labs",
+      "ai-tools"
+    ]
   },
-  "keywords": ["mcp", "mcp-server", "meok-ai-labs"],
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "meok-ai-labs"
+  ],
   "author": "MEOK AI Labs <nicholas@meok.ai>",
   "license": "MIT",
-  "repository": {"type": "git", "url": "https://github.com/CSOAI-ORG/url-ai-mcp"}
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CSOAI-ORG/url-ai-mcp"
+  }
 }
