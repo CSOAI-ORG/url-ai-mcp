@@ -11,6 +11,19 @@ from urllib.parse import urlparse, parse_qs, urlencode, quote, unquote
 from typing import Any
 from mcp.server.fastmcp import FastMCP
 
+import json
+from datetime import datetime, timezone
+from collections import defaultdict
+
+FREE_DAILY_LIMIT = 15
+_usage = defaultdict(list)
+def _rl(c="anon"):
+    now = datetime.now(timezone.utc)
+    _usage[c] = [t for t in _usage[c] if (now-t).total_seconds() < 86400]
+    if len(_usage[c]) >= FREE_DAILY_LIMIT: return json.dumps({"error": f"Limit {FREE_DAILY_LIMIT}/day"})
+    _usage[c].append(now); return None
+
+
 mcp = FastMCP("url-ai", instructions="MEOK AI Labs MCP Server")
 _calls: dict[str, list[float]] = {}
 DAILY_LIMIT = 50
@@ -30,6 +43,7 @@ def parse_url(url: str, api_key: str = "") -> dict[str, Any]:
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("parse_url"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -56,6 +70,7 @@ def shorten_url_data(url: str, api_key: str = "") -> dict[str, Any]:
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("shorten_url_data"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -74,6 +89,7 @@ def check_url_safety(url: str, api_key: str = "") -> dict[str, Any]:
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("check_url_safety"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -116,6 +132,7 @@ def extract_metadata(url: str, api_key: str = "") -> dict[str, Any]:
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("extract_metadata"):
         return {"error": "Rate limit exceeded (50/day)"}
