@@ -1,7 +1,6 @@
 """URL AI MCP Server — URL parsing and analysis tools."""
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 
 import hashlib
@@ -14,6 +13,15 @@ from mcp.server.fastmcp import FastMCP
 import json
 from datetime import datetime, timezone
 from collections import defaultdict
+
+STRIPE_199 = "https://buy.stripe.com/00wfZjcgAeUW4c5cyQ8k90K"
+
+def _add_upgrade_tail(response, tier="free"):
+    """Append upgrade nudge to free-tier success responses."""
+    if isinstance(response, dict) and tier == "free":
+        response["_upgrade_note"] = "Pro tier: unlimited calls + priority support. Upgrade: " + STRIPE_199
+    return response
+
 
 FREE_DAILY_LIMIT = 15
 _usage = defaultdict(list)
@@ -42,7 +50,7 @@ def parse_url(url: str, api_key: str = "") -> dict[str, Any]:
     """Parse a URL into its components with detailed analysis."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("parse_url"):
@@ -69,7 +77,7 @@ def shorten_url_data(url: str, api_key: str = "") -> dict[str, Any]:
     """Generate a deterministic short URL hash (does not create actual redirect)."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("shorten_url_data"):
@@ -88,7 +96,7 @@ def check_url_safety(url: str, api_key: str = "") -> dict[str, Any]:
     """Analyze URL for potential safety issues (heuristic-based, no external calls)."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("check_url_safety"):
@@ -131,7 +139,7 @@ def extract_metadata(url: str, api_key: str = "") -> dict[str, Any]:
     """Extract metadata from URL structure (no HTTP requests)."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("extract_metadata"):
@@ -160,5 +168,8 @@ def extract_metadata(url: str, api_key: str = "") -> dict[str, Any]:
         "has_fragment": bool(p.fragment), "estimated_type": "page" if not path_parts or "." not in path_parts[-1] else path_parts[-1].rsplit(".")[-1]
     }
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()
