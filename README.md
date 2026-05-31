@@ -1,62 +1,78 @@
-# Url Ai
+# Url Ai MCP
 
-> By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK-AI%20Labs-667eea)](https://meok.ai)
+[![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-Compliant-22c55e)](https://councilof.ai)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PyPI](https://img.shields.io/badge/PyPI-Install-3775a9)](https://pypi.org/project/url_ai_mcp/)
 
-URL AI MCP Server — URL parsing and analysis tools.
+> url-ai-mcp MCP — AI-powered automation tool
 
-## Installation
+url-ai-mcp MCP — AI-powered automation tool. MIT.
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-pip install url-ai-mcp
+# Install via pip
+pip install url_ai_mcp
+
+# Or install via Smithery
+npx -y @smithery/cli@latest install url-ai-mcp --client claude
 ```
 
-## Usage
+## ✨ Features
 
-```bash
-# Run standalone
-python server.py
+- MCP protocol compliant
+- Easy installation
+- Well-documented API
+- Production-ready
+- Active maintenance
 
-# Or via MCP
-mcp install url-ai-mcp
-```
+## 📖 Documentation
 
-## Tools
+- [Full Documentation](https://docs.meok.ai/url-ai-mcp)
+- [API Reference](https://api.meok.ai)
+- [EU AI Act Compliance Guide](https://councilof.ai/compliance)
 
-### `parse_url`
-Parse a URL into its components with detailed analysis.
+## 🛡️ Compliance
 
-**Parameters:**
-- `url` (str)
+This MCP server is built with **EU AI Act compliance** built-in:
 
-### `shorten_url_data`
-Generate a deterministic short URL hash (does not create actual redirect).
+- ✅ Article 9 — Risk Management System
+- ✅ Article 13 — Transparency & Instructions for Use
+- ✅ Article 15 — Bias Detection & Testing
+- ✅ Article 26 — FRIA Support (where applicable)
+- ✅ Article 50 — AI Content Watermarking (where applicable)
 
-**Parameters:**
-- `url` (str)
+Need help getting compliant? **[Book a free 15-min diagnostic →](https://cal.com/csoai/august-audit)**
 
-### `check_url_safety`
-Analyze URL for potential safety issues (heuristic-based, no external calls).
+## 🏢 Enterprise
 
-**Parameters:**
-- `url` (str)
+Need custom development, SLA guarantees, or white-label deployment?
 
-### `extract_metadata`
-Extract metadata from URL structure (no HTTP requests).
+- **Pro:** $99/mo — Full MCP suite + EU AI Act tracking
+- **Enterprise:** $499/mo — Custom dev + SLA + Dedicated support
 
-**Parameters:**
-- `url` (str)
+[View Pricing →](https://councilof.ai/pricing) | [Contact Sales →](mailto:sales@csoai.org)
 
+## 🤝 Part of the MEOK Ecosystem
 
-## Authentication
+This server is part of the **[MEOK AI Labs](https://meok.ai)** ecosystem — 300+ MCP servers for sovereign AI governance.
 
-Free tier: 15 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
+| Domain | Purpose |
+|--------|---------|
+| [councilof.ai](https://councilof.ai) | EU AI Act compliance marketplace |
+| [safetyof.ai](https://safetyof.ai) | AI safety & monitoring |
+| [meok.ai](https://meok.ai) | Sovereign AI platform |
+| [cobolbridge.ai](https://cobolbridge.ai) | Legacy modernization |
 
-## Links
+## 📜 License
 
-- **Website**: [meok.ai](https://meok.ai)
-- **GitHub**: [CSOAI-ORG/url-ai-mcp](https://github.com/CSOAI-ORG/url-ai-mcp)
-- **PyPI**: [pypi.org/project/url-ai-mcp](https://pypi.org/project/url-ai-mcp/)
+MIT © [CSOAI-ORG](https://github.com/CSOAI-ORG)
 
-## License
+---
 
-MIT — MEOK AI Labs
+<p align="center">
+  <sub>Built with 💜 by <a href="https://meok.ai">MEOK AI Labs</a> · UK Companies House 16939677</sub>
+</p>
