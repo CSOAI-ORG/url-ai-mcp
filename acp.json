@@ -1,0 +1,22 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "url-ai-mcp",
+    "description": "Url Ai MCP server. Tools: parse url, shorten url data, check url safety. Built by MEOK AI Labs.",
+    "version": "1.0.5",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "url-ai-mcp"
+      }
+    ],
+    "capabilities": [
+      "parse_url",
+      "shorten_url_data",
+      "check_url_safety",
+      "extract_metadata"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "name": "url-ai-mcp",
+  "description": "Url Ai MCP server. Tools: parse url, shorten url data, check url safety. Built by MEOK AI Labs.",
+  "url": "https://proofof.ai/scorecard/url-ai-mcp.html",
+  "version": "1.0.5",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "parse_url",
+      "name": "Parse Url",
+      "description": "parse_url via url-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "shorten_url_data",
+      "name": "Shorten Url Data",
+      "description": "shorten_url_data via url-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "check_url_safety",
+      "name": "Check Url Safety",
+      "description": "check_url_safety via url-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "extract_metadata",
+      "name": "Extract Metadata",
+      "description": "extract_metadata via url-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
