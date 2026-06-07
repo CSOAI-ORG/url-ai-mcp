@@ -1,5 +1,5 @@
 {
-  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.json",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.CSOAI-ORG/url-ai-mcp",
   "description": "Url Ai MCP server. Tools: parse url, shorten url data, check url safety. Built by MEOK AI Labs.",
   "version": "1.0.5",
@@ -9,12 +9,13 @@
   },
   "packages": [
     {
-      "registry_type": "pypi",
       "identifier": "url-ai-mcp",
       "version": "1.0.5",
       "transport": {
         "type": "stdio"
-      }
+      },
+      "registryType": "pypi",
+      "runtimeHint": "python"
     }
   ]
 }
