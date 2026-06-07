@@ -1,0 +1,25 @@
+{
+  "name": "url-ai-mcp",
+  "title": "Url Ai Mcp",
+  "description": "Url Ai MCP server. Tools: parse url, shorten url data, check url safety. Built by MEOK AI Labs.",
+  "version": "1.0.5",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "parse_url"
+    },
+    {
+      "name": "shorten_url_data"
+    },
+    {
+      "name": "check_url_safety"
+    },
+    {
+      "name": "extract_metadata"
+    }
+  ]
+}

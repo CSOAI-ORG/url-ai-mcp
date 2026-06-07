@@ -1,0 +1,9 @@
+# url-ai-mcp - Auto-trigger Rules
+
+When the user asks about url, use url-ai-mcp tools: parse_url, shorten_url_data, check_url_safety, extract_metadata
+
+> By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
+
+Install: `pip install url-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.

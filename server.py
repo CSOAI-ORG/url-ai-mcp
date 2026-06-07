@@ -1,4 +1,5 @@
-"""URL AI MCP Server — URL parsing and analysis tools."""
+"""
+URL AI MCP Server — URL parsing and analysis tools."""
 
 import sys, os
 from auth_middleware import check_access
