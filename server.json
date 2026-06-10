@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.CSOAI-ORG/url-ai-mcp",
   "description": "Url Ai MCP server. Tools: parse url, shorten url data, check url safety. Built by MEOK AI Labs.",
-  "version": "1.0.5",
+  "version": "1.0.10",
   "repository": {
     "url": "https://github.com/CSOAI-ORG/url-ai-mcp",
     "source": "github"
@@ -10,7 +10,7 @@
   "packages": [
     {
       "identifier": "url-ai-mcp",
-      "version": "1.0.5",
+      "version": "1.0.10",
       "transport": {
         "type": "stdio"
       },

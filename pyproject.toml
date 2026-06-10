@@ -3,7 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "url-ai-mcp"
-version = "1.0.7"
+version = "1.0.10"
+readme = "README.md"
 description = "Url Ai MCP server. Tools: parse url, shorten url data, check url safety. Built by MEOK AI Labs."
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
